@@ -3,22 +3,14 @@ defmodule Bob do
   def hey(input) do
     cond do
       yell?(input) && question?(input) -> "Calm down, I know what I'm doing!"
-      yell?(input)                     -> "Whoa, chill out!"
-      question?(input)                 -> "Sure."
-      empty?(input)                    -> "Fine. Be that way!"
-      true                             -> "Whatever."
+      yell?(input) -> "Whoa, chill out!"
+      question?(input) -> "Sure."
+      empty?(input) -> "Fine. Be that way!"
+      true -> "Whatever."
     end
   end
 
-  defp yell?(input) do
-    (input =~ ~r/\p{Lu}/u) && !(input =~ ~r/\p{Ll}/u)
-  end
-
-  defp question?(input) do
-    input =~ ~r/\?$/
-  end
-
-  defp empty?(input) do
-    input =~ ~r/^\s*$/
-  end
+  defp yell?(input), do: input =~ ~r/\p{Lu}/u && !(input =~ ~r/\p{Ll}/u)
+  defp question?(input), do: input =~ ~r/\?$/
+  defp empty?(input), do: input =~ ~r/^\s*$/
 end
