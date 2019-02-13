@@ -2,7 +2,7 @@
 
 -export([accumulate/2]).
 
-accumulate(Fn, Ls) -> accumulate([], Fn, Ls).
+accumulate(Fn, Ls) -> accumulate(Fn, Ls, []).
 
-accumulate(Acc, Fn, [H|T]) -> accumulate([Fn(H)|Acc], Fn, T);
-accumulate(Acc, _, []) -> lists:reverse(Acc).
+accumulate( _, [], Acc) -> lists:reverse(Acc);
+accumulate(Fn, [H|T], Acc) -> accumulate(Fn, T, [Fn(H)|Acc]).
