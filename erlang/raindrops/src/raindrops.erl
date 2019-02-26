@@ -8,13 +8,11 @@ convert(Number) ->
 
 convert(Number, []) -> integer_to_list(Number);
 convert(_, List) ->
-  F = fun(N,Acc) -> string:concat(Acc, num_to_drop(N)) end,
-  lists:foldl(F, "", List).
+  Drops = lists:map(fun(N) -> num_to_drop(N) end, List),
+  lists:flatten(Drops).
 
 factors(Number) ->
-  [X || X <- lists:seq(2,Number),
-        Number rem X == 0 andalso
-        lists:member(X, [3,5,7])].
+  [X || X <- lists:seq(3,7,2), Number rem X == 0].
 
 num_to_drop(3) -> "Pling";
 num_to_drop(5) -> "Plang";
