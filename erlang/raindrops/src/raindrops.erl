@@ -7,14 +7,11 @@ convert(Number) ->
   convert(Number, List).
 
 convert(Number, []) -> integer_to_list(Number);
-convert(_, List) ->
-  Drops = lists:map(fun(N) -> num_to_drop(N) end, List),
-  lists:flatten(Drops).
+convert(_, Drops) -> lists:flatten(Drops).
 
 factors(Number) ->
-  [X || X <- lists:seq(3,7,2), Number rem X == 0].
+  [num_to_drop(X) || X <- [3,5,7], Number rem X == 0].
 
 num_to_drop(3) -> "Pling";
 num_to_drop(5) -> "Plang";
-num_to_drop(7) -> "Plong";
-num_to_drop(_) -> "".
+num_to_drop(7) -> "Plong".
