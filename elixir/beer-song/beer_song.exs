@@ -17,16 +17,22 @@ defmodule BeerSong do
   end
   def verse(number) do
     """
-    #{number} bottles of beer on the wall, #{number} bottles of beer.
-    Take one down and pass it around, #{number -1} bottles of beer on the wall.
+    #{bottles(number)} of beer on the wall, #{bottles(number)} of beer.
+    Take one down and pass it around, #{bottles(number - 1)} of beer on the wall.
     """
   end
+
+  defp bottles(1), do: "1 bottle"
+  defp bottles(n), do: "#{n} bottles"
 
   @doc """
   Get the entire beer song for a given range of numbers of bottles.
   """
   @spec lyrics(Range.t()) :: String.t()
   def lyrics(range) do
-    # Your implementation here...
+    Enum.map(range, &verse/1)
+    |> Enum.join("\n")
   end
+
+  def lyrics, do: lyrics(99..0)
 end
