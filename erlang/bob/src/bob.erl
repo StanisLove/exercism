@@ -2,6 +2,15 @@
 
 -export([response/1]).
 
+% You may want to use proplist:get_value/2 to implement the logic in lines 10-14.
+% This would make the logic agnostic to the order in which the three tuples appear
+% in the proplist.
+% However, since that is unlikely to ever change, you might find your current
+% approach preferable.
+%
+% An additional suggestion to simplify question/1 and empty/1 is to trim the String
+% before passing it into any other function.
+
 response(String) ->
   case [{question, question(String)},
         {yell, yell(String)},
