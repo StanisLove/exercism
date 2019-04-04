@@ -4,4 +4,4 @@
 
 keep(Fn, List) -> [X || X <- List, Fn(X)].
 
-discard(Fn, List) -> [X || X <- List, not Fn(X)].
+discard(Fn, List) -> keep(fun(X) -> not Fn(X) end, List).
