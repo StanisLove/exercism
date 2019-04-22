@@ -52,8 +52,8 @@ defmodule RobotSimulator do
   defp new_direction(index, ?L), do: Enum.at(@directions, index - 1)
 
   @spec direction(robot :: any) :: atom
-  def direction(robot), do: robot.direction
+  def direction(%RobotSimulator{direction: direction}), do: direction
 
   @spec position(robot :: any) :: {integer, integer}
-  def position(robot), do: robot.position
+  def position(%RobotSimulator{position: position}), do: position
 end
