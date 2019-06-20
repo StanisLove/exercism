@@ -3,12 +3,7 @@
 set -o errexit
 
 main() {
-  input=$1
-
-  if [[ -z $input ]]
-  then echo "One for you, one for me."
-  else echo "One for $input, one for me."
-  fi
+  echo "One for ${1:-you}, one for me."
 }
 
 main "$@"
