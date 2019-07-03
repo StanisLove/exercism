@@ -1,0 +1,16 @@
+Error: undef
+[{cover,modules,[],[]},
+ {rebar_prv_cover,maybe_write_coverdata,2,
+                  [{file,"/home/stas/rebar3/src/rebar_prv_cover.erl"},
+                   {line,59}]},
+ {rebar_prv_eunit,run_tests,2,
+                  [{file,"/home/stas/rebar3/src/rebar_prv_eunit.erl"},
+                   {line,88}]},
+ {rebar_prv_eunit,do,2,
+                  [{file,"/home/stas/rebar3/src/rebar_prv_eunit.erl"},
+                   {line,66}]},
+ {rebar_core,do,2,[{file,"/home/stas/rebar3/src/rebar_core.erl"},{line,154}]},
+ {rebar3,run_aux,2,[{file,"/home/stas/rebar3/src/rebar3.erl"},{line,178}]},
+ {rebar3,main,1,[{file,"/home/stas/rebar3/src/rebar3.erl"},{line,66}]},
+ {escript,run,2,[{file,"escript.erl"},{line,758}]}]
+
